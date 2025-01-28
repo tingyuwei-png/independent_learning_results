@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>從零開始的網頁開發之旅</title>
+    <style>
+        /* 全域樣式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        /* 導覽列 */
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+        }
+        .navbar a:hover {
+            background-color: #4caf50;
+            border-radius: 5px;
+        }
+
+        /* 視差背景 */
+        .hero {
+            height: 700px;
+            background-image: url('images/bg.jpg');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            text-align: center;
+        }
+        /* 文字樣式 */
+        .hero h1 {
+            font-size: 5em;
+            margin-bottom: 100px;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+
+        /* 關於我 */
+        .about {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+        .about img {
+            width: 250px;
+            height: 340px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        /* 技能 */
+        .skills {
+            background-color: #f4f4f4;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .skills h2 {
+            margin-bottom: 20px;
+        }
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        .skills-list .skill {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            transition: transform 0.3s ease;
+        }
+        .skills-list .skill:hover {
+            transform: scale(1.1);
+        }
+
+        /* 比賽經驗區塊 */
+        .experience {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .experience h2 {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .experience-list {
+            display: flex;
+            flex-wrap: wrap; /* 自動換行 */
+            justify-content: center; /* 水平居中 */
+            gap: 20px; /* 項目之間的距離 */
+        }
+
+        .experience-item {
+            background-color: #f4f4f9;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px; /* 固定每個項目的寬度 */
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .experience-item:hover {
+            transform: scale(1.05); /* 滑鼠懸停放大效果 */
+        }
+
+        .experience-item img {
+            width: 100%; /* 圖片寬度適應容器 */
+            height: auto; /* 保持圖片比例 */
+            border-radius: 10px; /* 圓角效果 */
+            margin-bottom: 10px;
+        }
+
+        .experience-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #4caf50;
+        }
+
+        .experience-item p {
+            font-size: 1em;
+            margin: 5px 0;
+            color: #666;
+        }
+
+
+        /* 聯絡表單 */
+        .contact {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .contact form input,
+        .contact form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .contact form button {
+            padding: 10px 20px;
+            background-color: #4caf50;
+            border: none;
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact form button:hover {
+            background-color: #45a049;
+        }
+
+        /* 頁尾 */
+        .footer {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 導覽列 -->
+    <div class="navbar">
+        <a href="#about">關於我</a>
+        <a href="#skills">技能</a>
+        <a href="#portfolio">比賽經驗</a>
+        <a href="#contact">聯絡我</a>
+    </div>
+
+    <!-- 視差背景 -->
+    <div class="hero">
+        <div>
+            <h1>從零開始的網頁開發之旅</h1>
+            <p>透過學習 HTML 和 CSS，打造屬於自己的第一個網站。</p>
+        </div>
+    </div>
+
+    <!-- 關於我 -->
+    <div class="about" id="about">
+        <img src="images/tingyu.png" alt="個人照片">
+        <h2>魏廷語</h2>
+        <p>我是台中私立明道高級中學的一名學生，16歲，目前高一，立志成為一名出色的工程師。</p>
+    </div>
+
+    <!-- 技能 -->
+    <div class="skills" id="skills">
+        <h2>技能</h2>
+        <div class="skills-list">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">網頁排版</div>
+            <div class="skill">色彩設計</div>
+        </div>
+    </div>
+
+    <!-- 比賽經驗 -->
+    <div class="experience">
+        <h2>我的比賽經驗</h2>
+        <div class="experience-list">
+            <!-- 比賽 1 -->
+            <div class="experience-item">
+                <img src="images/火星照.jpg" alt="比賽 1">
+                <h3>火星任務無人車障礙比賽</h3>
+                <p>時間：2024 年 10 月</p>
+                <p>榮獲第一名，完成無人車智能控制與障礙躲避任務。</p>
+            </div>
+    
+            <!-- 比賽 2 -->
+            <div class="experience-item">
+                <img src="images/法遵照.jpg" alt="比賽 2">
+                <h3>法遵科技與電腦稽核競賽</h3>
+                <p>時間：2024 年 12 月</p>
+                <p>利用團隊中每一個人的特色，拍攝出一部關於 AI 的影片，並最後拿到了第一。</p>
+            </div>
+
+            <!-- 比賽 3 -->
+            <div class="experience-item">
+                <img src="images/bg.jpg" alt="比賽 3">
+                <h3>Cospace Rescue 亞洲賽</h3>
+                <p>時間：2024 年 10 月</p>
+                <p>雖然很遺憾地沒有獲得到個人獎第一，但也和新加坡的義安中學一同拿到了SuperTeam的第一名。</p>
+            </div>
+        </div>
+    </div>
+    
+
+    <!-- 聯絡我 -->
+    <div class="contact" id="contact">
+        <h2>聯絡我</h2>
+        <form action="https://formspree.io/f/xeoovqgz" method="POST" data-turbo="false">
+            <input type="text" name="name" placeholder="你的名字" required>
+            <input type="email" name="email" placeholder="你的電子郵件" required>
+            <textarea name="message" rows="4" placeholder="你的訊息" required></textarea>
+            <button type="submit">送出</button>
+        </form>
+    </div>    
+
+    <!-- 頁尾 -->
+    <div class="footer">
+        <p>© 2025 魏廷語. 保留所有權利.</p>
+    </div>
+</body>
+</html>

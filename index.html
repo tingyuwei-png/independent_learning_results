@@ -198,6 +198,23 @@
     </style>
 </head>
 <body>
+    <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function(event) {
+            event.preventDefault();
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+        
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80, // 減去導覽列高度
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
+    </script>
+        
     <!-- 導覽列 -->
     <div class="navbar">
         <a href="#about">關於我</a>
@@ -234,7 +251,7 @@
 
     <!-- 比賽經驗 -->
     <div class="experience" id="experience">
-        <h2>我的比賽經驗</h2>
+        <h2>比賽經驗</h2>
         <div class="experience-list">
             <!-- 比賽 1 -->
             <div class="experience-item">
